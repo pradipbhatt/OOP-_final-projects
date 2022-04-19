@@ -1,10 +1,11 @@
-#include<iostream>
+  #include<iostream>
 #include<vector>
 #include<stdio.h>
-#include<cstring.h>
-#include<fstream.h>
+#include<cstring>
+#include<fstream>
 #include<algorithm>
 using namespace std;
+
 class student
 {
     public:
@@ -20,6 +21,7 @@ class student
            cout<<" enter branch :"<<endl;
            gets(branch);
        }
+
        void display()
        {
            system("CLS");
@@ -30,16 +32,19 @@ class student
            system("PAUSE");
            system("CLS");
        }
+
        bool operator == (student a)
        {
            if (reg==a.reg)
               return true;
             else
-               return false; 
+               return false;
        }
-};
+};                                                  // class ends here..............
+
 vector <student>v;
-int search_reg(long int reg, int &i);
+
+int search_reg(long int reg, int  &i);
 void get_file()
 {
     student x;
@@ -48,23 +53,23 @@ void get_file()
     f.open("college.txt",ios::in);
     if(f)
     {
-        f.read ((char *) &x, sizeof(class student));
-        while(if.eof())
+        f.read ((char *)  &x, sizeof(class student));
+        while(!f.eof())
         {
             v.push_back(x);
-            f.read((char *) &x, sizeof(class student));
+            f.read((char *)  &x, sizeof(class student));
         }
     }
     else
-      ;
-    f.close();  
+       ;
+    f.close();
 }
 void bubblesort()
 {
     int i,j;
     student x;
-    for(j=0; j<v.size();i++)
-      for(j=0; j<v.size()-i-1; j++)
+    for(j=0;        j<v.size();        i++)
+      for(j=0;      j<v.size()-i-1;     j++)
          if(v[j].reg>v[j+1].reg)
          {
              x=v[j];
@@ -94,40 +99,40 @@ void write_file()
 {
     bubblesort();
     fstream f;
-    f.open("college.txt",ios::out);
-    for(int i=0; i<v.size(); i++)
+    f.open("college.txt", ios::out);
+    for(int i=0;         i<v.size();         i++)
     {
         student x=v[i];
-        f.write((char *) &x, sizeof(class student));
+        f.write((char *)  &x, sizeof(class student));
     }
     f.close();
 }
 int search_reg(long int reg, int &i)
 {
     int ta=0;
-    for(i=0; i<v.size(); i++)
+    for(i=0;          i<v.size();            i++)
        if(v[i].reg==reg)
        {
            ta=1;
            break;
        }
-    return ta;   
+    return ta;
 }
 int search_name(char name[], vector<int> &vi)
 {
     int i, ta=0;
-    for(i=0; i<v.size(); i++)
+    for(i=0;             i<v.size();             i++)
        if(strcmp(v[i].name, name)==0)
        {
            ta=1;
-           vi.push_back[i];
+           vi.push_back(i);
        }
        return ta;
 }
 int search_branch(char branch[], vector<int> &vj)
 {
     int i, ta=0;
-    for(i=0;i<v.size();i++)
+    for(i=0;           i<v.size();               i++)
       if(strcmp(v[i].branch, branch)==0)
       {
           ta=1;
@@ -142,22 +147,20 @@ void search_and_show()
     vector <int>vi;
     vector <int>vj;
     long int reg;
-    poi;
-    cout<<"\n1.Press to search reg no."<<"\n2.Press to search name"
-    <<"\n3.Press to search branch";
-    cin>>ch;
+    poi:
+    cout<<"\n 1.Press to search reg no."<<"\n 2.Press to search name"<<"\n 3.Press to search branch";cin>>ch;
     switch(ch)
     {
         case 1:
             cout<<"\n Enter reg no. :";
             cin>>reg;
-            if(search_reg(reg,1)==1)
+            if(search_reg(reg,i)==1)
                v[i].display();
             else
                cout<<"\n Record Not Found!!";
             break;
         case 2:
-            cout<<"\nEnter name:"; 
+            cout<<"\nEnter name:";
             fflush(stdin);
             gets(name);
             if(search_name(name,vi)==1)
@@ -165,7 +168,7 @@ void search_and_show()
                 for(int j=0; j<vi.size();j++)
                   v[vi[j]].display();
             }
-            else 
+            else
                 cout<<"\n Record Not Found!!!";
             break;
         case 3:
@@ -174,7 +177,7 @@ void search_and_show()
             gets(branch);
             if(search_branch(branch,vj)==1)
             {
-                for(int j=0; j<vj.size():j++)
+                for(int j=0;    j<vj.size();  j++)
                    v[vj[j]].display();
             }
             else
@@ -183,10 +186,10 @@ void search_and_show()
     }
 
 }
-viod show()
+void show()
 {
     int i;
-    for(i=0; i<v.size();i++)
+    for(i=0;      i<v.size();     i++)
       v[i].display();
 }
 void delete_data()
@@ -196,7 +199,7 @@ void delete_data()
     vector <student>::iterator p=v.begin();
     cout<<"\n Enter Reg No. :";
     cin>>reg;
-    if(search_reg(reg, i)==i)
+    if(search_reg(reg, i)==1)
     {
         student x=v[i];
         cout<<"\n The Following Data Is Being Deleted";
@@ -208,7 +211,7 @@ void delete_data()
 void edit_data()
 {
     int i,j;
-    long int reg:
+    long int reg;
     vector <student>vi;
     cout<<"\nEnter Reg No. :";
     cin>>reg;
@@ -221,20 +224,21 @@ void edit_data()
 }
 int main()
 {
+    system("cls");
     int i=1;
     get_file();
     while(i)
     {
         system("CLS");
-        cout<<"\t\t\t----------------------\n";
+        cout<<"\t\t\t_________________________\n";
         cout<<"\t\t\t   Simple College Management System\n";
         cout<<"\t\t\t-----------------------\n";
         cout<<"\n\t\t\t Enter <1> to Add new students"
-            <<"\n\t\t\t Enter <2> to Display all students"
-            <<"\n\t\t\t Enter <3> to Remove students"
-            <<"\n\t\t\t Enter <4> to Edit students"
-            <<"\n\t\t\t Enter <5> to Search students"
-            <<"\n\t\t\t Enter <0> to Exit \n";
+               <<"\n\t\t\t Enter <2> to Display all students"
+               <<"\n\t\t\t Enter <3> to Remove students"
+               <<"\n\t\t\t Enter <4> to Edit students"
+               <<"\n\t\t\t Enter <5> to Search students"
+               <<"\n\t\t\t Enter <0> to Exit \n";
         cout<<"\n\t\t\t Enter Your Choice:";
         cin>>i;
         switch(1)
@@ -257,8 +261,7 @@ int main()
             case 6 :
                     write_file();
                     break;
-             default ;
-                 cout<<"\nWRONG CHOICE!!!\n TRY AGAIN";  
+                 cout<<"\nWRONG CHOICE!!!\n TRY AGAIN";
         }
     }
     return 0;
