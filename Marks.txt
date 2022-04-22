@@ -1,2 +1,5 @@
 
-1,pradip-Python,OOP,C,html,css,js!7,$$$$$$$
+2008700248,-!0,
+1,achhyut-OOP,Thermodynamics,Maths,Discreate,chemistryPOP!6,$$$$$$
+3,akanshya-Mathematics,POP,Thermo,C++!4,$$$$
+14,goma chand-OOP,Thermo,Chemistry,maths,discrete!6,$$$$$$

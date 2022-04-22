@@ -241,7 +241,7 @@ int main()
                <<"\n\t\t\t Enter <0> to Exit \n";
         cout<<"\n\t\t\t Enter Your Choice:";
         cin>>i;
-        switch(1)
+        switch(i)
         {
             case 1 :
                   insert_new();
